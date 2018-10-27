@@ -1,0 +1,25 @@
+{
+  "name": "waifuchain-extension",
+  "version": "1.0.0",
+  "description": "Display waifus in social media profiles",
+  "main": "index.js",
+  "dependencies": {
+    "metamask-extension-provider": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "updateWeb3": "curl https://raw.githubusercontent.com/ethereum/web3.js/develop/dist/web3.js > extension/libs/web3.js",
+    "build": "bash build.sh -i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corollari/waifuchain-extension.git"
+  },
+  "author": "corollari",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/corollari/waifuchain-extension/issues"
+  },
+  "homepage": "https://github.com/corollari/waifuchain-extension#readme"
+}
