@@ -28,6 +28,6 @@
 		}
 	],
 	"permissions": [
-		"http://api.albert.sh/"
+		"http://waifuchain.moe/api/"
 	]
 }
