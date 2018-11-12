@@ -13,7 +13,6 @@
   <a href="#install">Install</a> •
   <a href="#build">Build</a> •
   <a href="#credits">Credits</a> •
-  <a href="#to-do">TO-DO</a> •
   <a href="#license">License</a>
 </p>
 
@@ -25,6 +24,7 @@ The extension can be installed through [Chrome's Web Store](https://chrome.googl
 ## Build
 ```bash
 npm install
+# Run the following command to update the version of Web3.js being used. Given that non-backwards compatible releases are common for Web3.js, this may break the extension.
 #npm run updateWeb3
 npm run build
 ```
@@ -32,10 +32,7 @@ npm run build
 ## Credits
 The following external resources have been included as part of the project:
 - Ethereum Foundation's Web3.js 
-- The [wasp icon](https://icons8.com/icon/6558/wasp) used in the extension comes from Icons8's Free License icon collection
-
-## TO-DO
-- [ ] Integrate Readability into the extension so the color gradients are only applied to the main text
+- The icon used in the extension is an image of Zero Two, one of the main characters of the series DARLING in the FRANXX.
 
 ## License
 The Unlicense
