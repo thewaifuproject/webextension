@@ -23,11 +23,8 @@
 	"content_scripts": [
 		{
 			"matches": ["https://twitter.com/*"],
-			"js": ["libs/web3.js", "dist/twitter.js"],
+			"js": ["libs/web3.js", "contentScripts/ABI.js", "dist/twitter.js"],
 			"css": ["contentScripts/twitter/styles.css"]
 		}
-	],
-	"permissions": [
-		"http://waifuchain.moe/api/"
 	]
 }
