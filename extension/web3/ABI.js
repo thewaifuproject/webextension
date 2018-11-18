@@ -1,6 +1,6 @@
-const contractAddress="0x493a466c12f71d46f2b9ce272002b328bfbe7b3a"
+module.exports.contractAddress="0xc1769937adb8e0a8338690acd0325d6fdd87a0a0"
 
-const ABI=[
+module.exports.ABI=[
 	{
 		"constant": true,
 		"inputs": [

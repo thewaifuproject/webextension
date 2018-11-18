@@ -1,39 +1,53 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-const {WaifuChain, web3} = require("../../web3/WaifuChain.js");
+const {WaifuChain, web3} = require("../web3/WaifuChain.js");
 
-if(document.querySelector(".ProfileHeaderCard")){
-	let currentPage=new URL(window.location.href)
-	WaifuChain.methods.getWaifusInProfile(currentPage.hostname, currentPage.pathname).call()
-	.then((waifus)=>{
-		if(waifus.length){
-			document.querySelector(".ProfileHeaderCard-bio").innerHTML+=
-				'<br><div id="waifuList"></div>';
-		}
-		let waifuList=document.querySelector("#waifuList");
-		waifus.forEach((waifuId, waifuIndex)=>{
-			WaifuChain.methods.tokenURI(waifuId).call()
-			.then((waifuURL)=>
-				fetch(waifuURL)
-			)
-			.then((res)=>
-				res.json()
-			)
-			.then((waifu)=>{
-				document.querySelector("#waifu-"+waifuIndex+" > img").src=waifu["image"];
-				document.querySelector("#waifu-"+waifuIndex+" > p").innerText=waifu["name"].split(' ').slice(0,3).join(' ');
-			});
-			waifuList.innerHTML+=
-				"<div id='waifu-"+waifuIndex+"' class='waifuCard'>"+
-					"<img width='85' height='90'>"+
-					"<p></p>"+
-				"</div>";
+web3.eth.getAccounts().
+then((accounts)=>{
+	accounts.forEach((acc, accIndex)=>{
+		WaifuChain.methods.balanceOf(acc).call()
+		.then((numWaifus)=>{
+			let waifuList = document.querySelector("#waifuList")
+			for(let i=0; i<numWaifus; i++){
+				let waifuId;
+				WaifuChain.methods.tokenOfOwnerByIndex(acc, i).call()
+				.then((tokenId)=>{
+					waifuId=tokenId
+					return WaifuChain.methods.tokenURI(waifuId).call()
+				})
+				.then((waifuURL)=>
+					fetch(waifuURL)
+				)
+				.then((res)=>
+					res.json()
+				)
+				.then((waifu)=>{
+					document.querySelector("#waifu-"+accIndex+"-"+i+" > img").src=waifu["image"];
+					document.querySelector("#waifu-"+accIndex+"-"+i+" > p").innerText=waifu["name"].split(' ').slice(0,3).join(' ');
+					document.querySelector("#waifu-"+accIndex+"-"+i).addEventListener(
+						"click",
+						()=>{
+							chrome.tabs.query({ active: true, currentWindow: true }, (tabs)=>{
+								let currentPage=new URL(tabs[0].url)
+								if(currentPage.hostname!="twitter.com"){
+									return alert("Social network not supported");
+								}
+								WaifuChain.methods.setWaifuProfile(waifuId, currentPage.hostname, currentPage.pathname).send({from: acc})
+							});
+						}
+					);
+					
+				});
+				waifuList.innerHTML+=
+					"<div id='waifu-"+accIndex+"-"+i+"' class='waifuCard'>"+
+						"<img width='94' height='100'>"+
+						"<p></p>"+
+					"</div>";
+			}
 		});
 	});
-}
+});
 
-
-
-},{"../../web3/WaifuChain.js":3}],2:[function(require,module,exports){
+},{"../web3/WaifuChain.js":3}],2:[function(require,module,exports){
 module.exports.contractAddress="0xc1769937adb8e0a8338690acd0325d6fdd87a0a0"
 
 module.exports.ABI=[

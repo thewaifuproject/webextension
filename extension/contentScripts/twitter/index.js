@@ -1,26 +1,33 @@
-const createMetaMaskProvider = require('metamask-extension-provider')
-
-const provider = createMetaMaskProvider()
-
-provider.on('error', (error) => {
-  // Failed to connect to MetaMask, fallback logic.
-})
-
-var web3 = new Web3(provider);
-
-var WaifuChain = web3.eth.contract(ABI).at(contractAddress);
+const {WaifuChain, web3} = require("../../web3/WaifuChain.js");
 
 if(document.querySelector(".ProfileHeaderCard")){
-	WaifuChain.getWaifusInProfile("twitter", "user",  {from: web3.eth.accounts[0], gas: 3000000},
-		(waifus)=>{
-			console.log(waifus);
+	let currentPage=new URL(window.location.href)
+	WaifuChain.methods.getWaifusInProfile(currentPage.hostname, currentPage.pathname).call()
+	.then((waifus)=>{
+		if(waifus.length){
+			document.querySelector(".ProfileHeaderCard-bio").innerHTML+=
+				'<br><div id="waifuList"></div>';
 		}
-	);
-	/*web3.eth.sendTransaction({
-		from: '0x3fa1e84280163fde90fb65977f0e48cd5c337b9b',
-		to: '0x0406735fC1a657398941A50A0602eddf9723A6C8',
-		value: "1000000000000000000"
-	}, (err, res)=>{});*/
+		let waifuList=document.querySelector("#waifuList");
+		waifus.forEach((waifuId, waifuIndex)=>{
+			WaifuChain.methods.tokenURI(waifuId).call()
+			.then((waifuURL)=>
+				fetch(waifuURL)
+			)
+			.then((res)=>
+				res.json()
+			)
+			.then((waifu)=>{
+				document.querySelector("#waifu-"+waifuIndex+" > img").src=waifu["image"];
+				document.querySelector("#waifu-"+waifuIndex+" > p").innerText=waifu["name"].split(' ').slice(0,3).join(' ');
+			});
+			waifuList.innerHTML+=
+				"<div id='waifu-"+waifuIndex+"' class='waifuCard'>"+
+					"<img width='85' height='90'>"+
+					"<p></p>"+
+				"</div>";
+		});
+	});
 }
 
 

@@ -4,12 +4,12 @@
   "description": "Display waifus in social media profiles",
   "main": "index.js",
   "dependencies": {
-    "metamask-extension-provider": "^1.1.0"
+    "metamask-extension-provider": "^1.1.0",
+    "web3": "^1.0.0-beta.36"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "updateWeb3": "curl https://raw.githubusercontent.com/ethereum/web3.js/develop/dist/web3.js > extension/libs/web3.js",
     "build": "bash build.sh -i"
   },
   "repository": {

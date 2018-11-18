@@ -1,6 +1,6 @@
 {
 	"name": "WaifuChain",
-	"version": "1.0.0",
+	"version": "0.2",
 	"description": "Display waifus associated with social media profiles",
 	"manifest_version": 2,
 	"background":{
@@ -23,8 +23,11 @@
 	"content_scripts": [
 		{
 			"matches": ["https://twitter.com/*"],
-			"js": ["libs/web3.js", "contentScripts/ABI.js", "dist/twitter.js"],
+			"js": ["dist/twitter.js"],
 			"css": ["contentScripts/twitter/styles.css"]
 		}
+	],
+	"permissions": [
+		"activeTab"
 	]
 }

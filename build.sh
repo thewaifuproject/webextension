@@ -13,6 +13,10 @@ while getopts "i" opt; do
       ;;
   esac
 done
+browserify extension/popup/popup.js -o extension/dist/popup.js
 browserify extension/contentScripts/twitter/index.js -o extension/dist/twitter.js
-sed -i 's/4f8e3007-2c57-944b-a11b-b518d57714fa/webextension@metamask.io/g' extension/dist/twitter.js
+for script in extension/dist/*.js; do
+	sed -i 's/4f8e3007-2c57-944b-a11b-b518d57714fa/webextension@metamask.io/g' $script
+	sed -i "s/Function('return this')()/this/g" $script
+done
 (cd extension && zip -r ../bundle.zip .)

@@ -1,8 +1,7 @@
 #waifuList{
 	display:grid;
 	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 5px;
-	padding-top:1em;
+	grid-gap: 10px;
 }
 .waifuCard{
 	border-radius: 2px;
@@ -10,8 +9,6 @@
 	text-align:center;
 	cursor:pointer;
 	transition: box-shadow 0.5s;
-	background-color:white;
-	font-size: 12px;
 }
 .waifuCard:hover{
 	box-shadow: 0 4px 4px 0 rgba(0,0,0,.14), 0 2px 10px 0 rgba(0,0,0,.12), 0 6px 2px -4px rgba(0,0,0,.2);

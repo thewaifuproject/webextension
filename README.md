@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <img src="https://raw.githubusercontent.com/corollari/waifuchain-extension/master/promo/icon.png" width="200"></a>
+  <img src="https://raw.githubusercontent.com/corollari/waifuchain/master/webextension/promo/icon.png" width="200"></a>
   <br>
   WaifuChain Extension
   <br>
@@ -16,17 +16,16 @@
   <a href="#license">License</a>
 </p>
 
-![screenshot](https://raw.githubusercontent.com/corollari/waifuchain-extension/master/promo/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/corollari/waifuchain/master/webextension/promo/screenshot.png)
 
 ## Install
 The extension can be installed through [Chrome's Web Store](https://chrome.google.com/webstore/detail/waspline-reader/ndlnnojbbcbdpkccfmcgbopalpbmhbhm) or [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/waspline-reader/)
 
 ## Build
 ```bash
-npm install
-# Run the following command to update the version of Web3.js being used. Given that non-backwards compatible releases are common for Web3.js, this may break the extension.
-#npm run updateWeb3
-npm run build
+npm install -g browserify #Install browserify
+npm install #Install dependencies
+npm run build #Build extension
 ```
 
 ## Credits
