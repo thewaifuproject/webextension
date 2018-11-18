@@ -1,6 +1,6 @@
 {
 	"name": "WaifuChain",
-	"version": "0.2",
+	"version": "1.0.0",
 	"description": "Display waifus associated with social media profiles",
 	"manifest_version": 2,
 	"background":{

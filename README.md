@@ -19,7 +19,8 @@
 ![screenshot](https://raw.githubusercontent.com/corollari/waifuchain/master/webextension/promo/screenshot.png)
 
 ## Install
-The extension can be installed through [Chrome's Web Store](https://chrome.google.com/webstore/detail/waspline-reader/ndlnnojbbcbdpkccfmcgbopalpbmhbhm) or [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/waspline-reader/)
+- [**Chrome** extension](https://chrome.google.com/webstore/detail/waifuchain/injlalemmnakihphncnhbdckncjbcaac) [<img valign="middle" src="https://img.shields.io/chrome-web-store/v/injlalemmnakihphncnhbdckncjbcaac.svg?label=%20">](https://chrome.google.com/webstore/detail/waifuchain/injlalemmnakihphncnhbdckncjbcaac)
+- [**Firefox** add-on](https://addons.mozilla.org/en-US/firefox/addon/waifuchain/) [<img valign="middle" src="https://img.shields.io/amo/v/waifuchain.svg?label=%20">](https://addons.mozilla.org/en-US/firefox/addon/waifuchain/)
 
 ## Build
 ```bash
