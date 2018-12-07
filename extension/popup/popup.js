@@ -30,7 +30,7 @@ then((accounts)=>{
 								if(currentPage.hostname!="twitter.com"){
 									return alert("Social network not supported");
 								}
-								WaifuChain.methods.setWaifuProfile(waifuId, currentPage.hostname, currentPage.pathname).send({from: acc})
+								WaifuChain.methods.setWaifuProfile(waifuId, currentPage.hostname + currentPage.pathname).send({from: acc})
 							});
 						}
 					);

@@ -3,7 +3,7 @@ const {WaifuChain, web3} = require("../../web3/WaifuChain.js");
 
 if(document.querySelector(".ProfileHeaderCard")){
 	let currentPage=new URL(window.location.href)
-	WaifuChain.methods.getWaifusInProfile(currentPage.hostname, currentPage.pathname).call()
+	WaifuChain.methods.getWaifusInProfile(currentPage.hostname + currentPage.pathname).call()
 	.then((waifus)=>{
 		if(waifus.length){
 			document.querySelector(".ProfileHeaderCard-bio").innerHTML+=
