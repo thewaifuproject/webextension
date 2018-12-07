@@ -1,4 +1,4 @@
-module.exports.contractAddress="0xc1769937adb8e0a8338690acd0325d6fdd87a0a0"
+module.exports.contractAddress="0x76ffb21b2c004e39aef756484c980ce8c81b7bd0";
 
 module.exports.ABI=[
 	{
@@ -89,6 +89,24 @@ module.exports.ABI=[
 		"constant": false,
 		"inputs": [
 			{
+				"name": "_tokenId",
+				"type": "uint256"
+			},
+			{
+				"name": "_owner",
+				"type": "address"
+			}
+		],
+		"name": "voteFundOwner",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
 				"name": "from",
 				"type": "address"
 			},
@@ -131,6 +149,34 @@ module.exports.ABI=[
 		"type": "function"
 	},
 	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "_tokenToProfile",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "withdraw",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"constant": false,
 		"inputs": [
 			{
@@ -156,6 +202,39 @@ module.exports.ABI=[
 		"constant": true,
 		"inputs": [
 			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "highestBidder",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_URL",
+				"type": "string"
+			}
+		],
+		"name": "setBaseURL",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
 				"name": "index",
 				"type": "uint256"
 			}
@@ -169,6 +248,50 @@ module.exports.ABI=[
 		],
 		"payable": false,
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_tokenId",
+				"type": "uint256"
+			},
+			{
+				"name": "_values",
+				"type": "uint256[]"
+			},
+			{
+				"name": "_fake",
+				"type": "bool[]"
+			},
+			{
+				"name": "_secret",
+				"type": "bytes32[]"
+			}
+		],
+		"name": "reveal",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_tokenId",
+				"type": "uint256"
+			},
+			{
+				"name": "_profile",
+				"type": "string"
+			}
+		],
+		"name": "setWaifuProfile",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -211,12 +334,62 @@ module.exports.ABI=[
 	},
 	{
 		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "address"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "bids",
+		"outputs": [
+			{
+				"name": "blindedBid",
+				"type": "bytes32"
+			},
+			{
+				"name": "deposit",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
 		"inputs": [],
 		"name": "symbol",
 		"outputs": [
 			{
 				"name": "",
 				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_profile",
+				"type": "string"
+			}
+		],
+		"name": "getWaifusInProfile",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256[]"
 			}
 		],
 		"payable": false,
@@ -256,6 +429,25 @@ module.exports.ABI=[
 		"type": "function"
 	},
 	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "highestBid",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"constant": false,
 		"inputs": [
 			{
@@ -282,20 +474,6 @@ module.exports.ABI=[
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "waifuIndex",
-				"type": "uint256"
-			}
-		],
-		"name": "bidWaifu",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
 		"constant": true,
 		"inputs": [
 			{
@@ -316,21 +494,12 @@ module.exports.ABI=[
 	},
 	{
 		"constant": true,
-		"inputs": [
-			{
-				"name": "_network",
-				"type": "string"
-			},
-			{
-				"name": "_profile",
-				"type": "string"
-			}
-		],
-		"name": "getWaifusInProfile",
+		"inputs": [],
+		"name": "creationTime",
 		"outputs": [
 			{
 				"name": "",
-				"type": "uint256[]"
+				"type": "uint256"
 			}
 		],
 		"payable": false,
@@ -341,19 +510,11 @@ module.exports.ABI=[
 		"constant": false,
 		"inputs": [
 			{
-				"name": "_tokenId",
-				"type": "uint256"
-			},
-			{
-				"name": "_network",
-				"type": "string"
-			},
-			{
-				"name": "_profile",
-				"type": "string"
+				"name": "_owner",
+				"type": "address"
 			}
 		],
-		"name": "setWaifuProfile",
+		"name": "transferFunds",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -383,20 +544,70 @@ module.exports.ABI=[
 		"type": "function"
 	},
 	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_tokenId",
+				"type": "uint256"
+			},
+			{
+				"name": "_blindedBid",
+				"type": "bytes32"
+			}
+		],
+		"name": "bid",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_tokenId",
+				"type": "uint256"
+			},
+			{
+				"name": "_URL",
+				"type": "string"
+			}
+		],
+		"name": "voteBaseURL",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "getWaifuProfile",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
 				"indexed": false,
 				"name": "waifuIndex",
 				"type": "uint256"
-			},
-			{
-				"indexed": false,
-				"name": "amount",
-				"type": "uint256"
 			}
 		],
-		"name": "Bid",
+		"name": "NewBid",
 		"type": "event"
 	},
 	{
